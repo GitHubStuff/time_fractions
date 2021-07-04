@@ -6,21 +6,22 @@ class VideoTimeParser {
   String? _minutes;
   String? _seconds;
 
-  int? get hours => _hours == null ? null : int.parse(_hours!);
-  int? get minutes => _minutes == null ? null : int.parse(_minutes!);
-  int? get seconds => _seconds == null ? null : int.parse(_seconds!);
-
   DateTimeElement _currentState = DateTimeElement.second;
   String? _token;
+  int? get hours => _hours == null ? null : int.parse(_hours!);
+
+  int? get minutes => _minutes == null ? null : int.parse(_minutes!);
+  int? get seconds => _seconds == null ? null : int.parse(_seconds!);
 
   List<String> byFactor(double factor) {
     final List<String> result = [];
     final Duration baseDuration = Duration(hours: (hours ?? 0), minutes: (minutes ?? 0), seconds: (seconds ?? 0));
     final adjusted = baseDuration.inSeconds.toDouble() / factor;
     final Duration duration = Duration(seconds: adjusted.toInt());
-    final NumberFormat formatter = NumberFormat('00');
+    final NumberFormat formatter = NumberFormat('###,###,#00');
     final justSeconds = '${formatter.format(duration.inSeconds)}';
     result.add(justSeconds);
+
     final justMinutes = '${formatter.format(duration.inMinutes)}:${formatter.format(duration.inSeconds - duration.inMinutes * 60)}';
     result.add(justMinutes);
     final last =
@@ -67,7 +68,16 @@ class VideoTimeParser {
     _parse(tokens.substring(1));
   }
 
-  static VideoTimeParser parse(String tokens) {
+  static VideoTimeParser parse(String tokenString) {
+    String tokens = '';
+    for (int i = 0; i < tokenString.length; i++) {
+      final item = tokenString.substring(i, i + 1);
+      if (item.contains(RegExp(r'[0-9]'))) {
+        tokens += tokenString.substring(i, i + 1);
+      } else {
+        tokens += '.';
+      }
+    }
     String elements = tokens.split('.').reversed.toList().join('.');
     return VideoTimeParser().._parse(elements);
   }
