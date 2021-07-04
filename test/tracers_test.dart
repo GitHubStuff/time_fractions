@@ -1,7 +1,7 @@
 //import 'package:tracers/tracers.dart';
 
 import 'package:test/test.dart';
-import 'package:time_fractions/source/video_time_parser.dart';
+import 'package:time_fractions_package/time_fractions_package.dart';
 
 void main() {
   test('parse and factor', () {

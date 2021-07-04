@@ -1,6 +1,6 @@
 {
-    "name": "AApp",
-    "short_name": "AApp",
+    "name": "Time Calc",
+    "short_name": "Time Calc",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,4 @@
-package com.icodeforyou.time_fractions
+package com.icodeforyou.fractions
 
 import io.flutter.embedding.android.FlutterActivity
 

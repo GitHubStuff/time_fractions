@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.icodeforyou.time_fractions">
    <application
-        android:label="AApp"
+        android:label="Time Calc"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

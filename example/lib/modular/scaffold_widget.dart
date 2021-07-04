@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extras/flutter_extras.dart';
 import 'package:theme_manager/theme_manager.dart';
-import 'package:time_fractions/time_fractions.dart';
+import 'package:time_fractions_package/time_fractions_package.dart';
 
 class ScaffoldWidget extends StatefulWidget {
   ScaffoldWidget({Key? key}) : super(key: key);
